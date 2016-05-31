@@ -23,5 +23,5 @@ signaller.on('error', function(err) {
     console.log('message:interfaces: ', text);
 });
 
-signaller.announce({ room: 'linkbot-labs' });
+signaller.announce({ room: process.argv[2] });
 signaller.connect();

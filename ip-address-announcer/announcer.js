@@ -50,5 +50,5 @@ signaller.on('error', function(err) {
     console.log('message:interfaces: ', text);
 });
 
-signaller.announce({ room: 'linkbot-labs' });
+signaller.announce({ room: os.hostname() });
 signaller.connect();
