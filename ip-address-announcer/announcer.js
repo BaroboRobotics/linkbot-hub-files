@@ -1,30 +1,17 @@
 'use strict';
 
 var os = require('os');
-var ifaces = os.networkInterfaces();
 
-// From StackOverflow, shows how we can pare down the interface spam
-/*
-Object.keys(ifaces).forEach(function (ifname) {
-  var alias = 0;
-
-  ifaces[ifname].forEach(function (iface) {
-    if ('IPv4' !== iface.family || iface.internal !== false) {
-      // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-      return;
-    }
-
-    if (alias >= 1) {
-      // this single interface has multiple ipv4 addresses
-      console.log(ifname + ':' + alias, iface.address);
-    } else {
-      // this interface has only one ipv4 adress
-      console.log(ifname, iface.address);
-    }
-    ++alias;
-  });
-});
-*/
+var getInterfaces = function () {
+    var interfaces = os.networkInterfaces();
+    Object.keys(interfaces).filter(function (name) {
+        // Only report the interfaces that make sense on the RPi.
+        return ['wlan0', 'eth0'].indexOf(name) == -1;
+    }).forEach(function (name) {
+        delete interfaces[name];
+    });
+    return interfaces;
+}
 
 var messenger = require('rtc-switchboard-messenger');
 var signaller = require('rtc-signaller')(messenger('http://barobo.com:42005/'));
@@ -43,12 +30,18 @@ signaller.on('error', function(err) {
     console.log('peer:connected: ', id);
 }).on('peer:announce', function(data) {
     console.log('peer:announce: ', data);
-    signaller.to(data.id).send('/interfaces', JSON.stringify(ifaces));
+    signaller.to(data.id).send('/interfaces', JSON.stringify(getInterfaces()));
 }).on('peer:update', function(data) {
     console.log('peer:update: ', data);
 }).on('message:interfaces', function(text) {
     console.log('message:interfaces: ', text);
 });
 
-signaller.announce({ room: os.hostname() });
+var profile = {
+    room: os.hostname(),
+    type: 'linkbot-hub',
+    interfaces: JSON.stringify(getInterfaces())
+};
+
+signaller.announce(profile);
 signaller.connect();
