@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # An auto-update script for updating the PyLinkbot3 Python package. This file
-# should probably belong in /etc/cron.weekly/
+# should probably belong in /etc/cron.daily/
 
 pip3 install --upgrade PyLinkbot3
 pip3 install --upgrade linkbot-firmware-updater
 
-/opt/bin/pip3 install --upgrade PyLinkbot3

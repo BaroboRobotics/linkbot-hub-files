@@ -22,22 +22,21 @@ sudo apt-get update
 sudo apt-get -y install npm
 sudo apt-get -y install software-properties-common
 sudo apt-get -y install linkbotd
+sudo apt-get -y install tightvncserver
+sudo apt-get -y install python3-pyqt4
 sudo apt-get install -y wicd-curses
 sudo apt-get remove -y dhcpcd5
 
-# Set up ip-address-announcer
+# Set up linkbot-hub-announcer
 
-pushd ip-address-announcer
-npm install
+if [ ! -d "linkbot-hub-announcer" ]; then
+	git clone https://github.com/BaroboRobotics/linkbot-hub-announcer
+fi
+pushd linkbot-hub-announcer
+sudo npm install -g
 sudo cp linkbot-hub-announcer.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl start linkbot-hub-announcer
-popd
-
-# Download and install Python 3.5
-wget https://dl.dropboxusercontent.com/s/axqf613056ckt8e/python-3.5.1-armhf.tar.gz?dl=0 -O python-3.5.1-armhf.tar.gz
-pushd /opt
-sudo tar xf ~/linkbot-hub-files/python-3.5.1-armhf.tar.gz
 popd
 
 # Run the cron jobs now.
