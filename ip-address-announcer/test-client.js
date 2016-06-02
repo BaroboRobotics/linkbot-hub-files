@@ -9,19 +9,24 @@ signaller.on('error', function(err) {
     console.log('connected');
 }).on('disconnected', function() {
     console.log('disconnected');
-}).on('local:announce', function(data) {
-    console.log('local:announce: ', data);
-}).on('peer:filter', function(id, data) {
-    console.log('peer:filter: ', id, data);
+}).on('local:announce', function(peer) {
+    console.log('local:announce: ', peer);
+}).on('peer:filter', function(id, peer) {
+    console.log('peer:filter: ', id, peer);
+    peer.allow = peer.allow && peer.hasOwnProperty('type') && peer.type === 'linkbot-hub';
 }).on('peer:connected', function(id) {
     console.log('peer:connected: ', id);
-}).on('peer:announce', function(data) {
-    console.log('peer:announce: ', data);
-}).on('peer:update', function(data) {
-    console.log('peer:update: ', data);
-}).on('message:interfaces', function(text) {
-    console.log('message:interfaces: ', text);
+}).on('peer:announce', function(peer) {
+    console.log('peer:announce: ', peer);
+    console.log(peer.ipAddresses);
+}).on('peer:update', function(peer) {
+    console.log('peer:update: ', peer);
 });
 
-signaller.announce({ room: process.argv[2] });
+var profile = {
+    room: process.argv[2],
+    type: 'linkbot-labs'
+};
+
+signaller.announce(profile);
 signaller.connect();
