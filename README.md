@@ -29,8 +29,8 @@ Print Services](https://support.apple.com/kb/DL999?locale=en_US) first.
 
 #### Start the IP Announcer
 
-Enter the `ip-address-announcer` directory in this repo and follow the instructions in its
-[README](https://github.com/BaroboRobotics/linkbot-hub-files/blob/master/ip-address-announcer/README.md).
+Install [linkbot-hub-announcer](https://github.com/BaroboRobotics/linkbot-hub-announcer) and start
+it as a service. Instructions are in its README.
 
 #### TODO
 
