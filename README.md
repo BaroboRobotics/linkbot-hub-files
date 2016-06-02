@@ -29,19 +29,8 @@ Print Services](https://support.apple.com/kb/DL999?locale=en_US) first.
 
 #### Start the IP Announcer
 
-Enter the `ip-address-announcer` directory in this repo and execute:
-
-```
-sudo apt-get install npm
-npm install
-sudo cp linkbot-hub-announcer.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl start linkbot-hub-announcer
-```
-
-To see if it's working, run `sudo journalctl --follow -u linkbot-hub-announcer`. If you don't see
-big scary errors, try an end-to-end test with `./test-client.js linkbot-hub-xxxx`. You should see
-the RPi's IP address(es) printed out.
+Enter the `ip-address-announcer` directory in this repo and follow the instructions in its
+[README](https://github.com/BaroboRobotics/linkbot-hub-files/blob/master/ip-address-announcer/README.md).
 
 #### TODO
 

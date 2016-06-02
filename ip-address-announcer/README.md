@@ -1,18 +1,18 @@
-## Linkbot Hub IP Address Announcer
+# Linkbot Hub IP Address Announcer
 
-To broadcast a Linkbot Hub's network interfaces:
+To quickly broadcast a Linkbot Hub's IP address, run `npm install && ./announcer.js`
 
-```
-while true; do
-    node announcer.js
-    sleep 1
-done
-```
+#### Installing the IP Address Announcer as a `systemd` Service
 
-To test if it's working:
+Execute:
 
 ```
-node test-client.js
+npm install
+sudo cp linkbot-hub-announcer.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl start linkbot-hub-announcer
 ```
 
-You should see a list of network interface data.
+To see if it's working, run `sudo journalctl --follow -u linkbot-hub-announcer`. If you don't see
+big scary errors, try an end-to-end test with `./test-client.js linkbot-hub-xxxx`. You should see
+the RPi's IP address(es) printed out.
