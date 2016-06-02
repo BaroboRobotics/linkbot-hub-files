@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 'use strict';
 
 var messenger = require('rtc-switchboard-messenger');

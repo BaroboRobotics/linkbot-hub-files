@@ -1,8 +1,10 @@
+#!/usr/bin/env node
+
 'use strict';
 
 var os = require('os');
 
-var getIpAddresses = function () {
+var ipAddresses = function () {
     // Generate a list of IPv4 addresses associated with eth0 and wlan0, eth0 ordered first if
     // available.
     var interfaces = os.networkInterfaces();
@@ -19,7 +21,7 @@ var getIpAddresses = function () {
         }
     });
     return ipAddresses;
-}
+}();
 
 var messenger = require('rtc-switchboard-messenger');
 var signaller = require('rtc-signaller')(messenger('http://barobo.com:42005/'));
@@ -49,7 +51,7 @@ signaller.on('error', function(err) {
 var profile = {
     room: os.hostname(),
     type: 'linkbot-hub',
-    ipAddresses: getIpAddresses()
+    ipAddresses: ipAddresses
 };
 
 signaller.announce(profile);
