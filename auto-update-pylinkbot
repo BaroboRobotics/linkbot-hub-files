@@ -5,3 +5,5 @@
 
 pip3 install --upgrade PyLinkbot3
 pip3 install --upgrade linkbot-firmware-updater
+
+/opt/bin/pip3 install --upgrade PyLinkbot3
