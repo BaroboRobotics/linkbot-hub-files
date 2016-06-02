@@ -5,4 +5,5 @@
 
 pip3 install --upgrade PyLinkbot3
 pip3 install --upgrade linkbot-firmware-updater
+pip3 install --upgrade prex
 

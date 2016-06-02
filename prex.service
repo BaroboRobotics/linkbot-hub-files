@@ -1,0 +1,13 @@
+[Unit]
+Description=Python remote execution engine server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/prex-server.py
+Restart=always
+User=nobody
+Environment=PATH=/usr/bin:/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target

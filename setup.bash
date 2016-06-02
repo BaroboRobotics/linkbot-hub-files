@@ -14,6 +14,7 @@ sudo /etc/init.d/hostname.sh
 # Copy service file to correct location
 
 sudo cp linkbot-hub.service /etc/avahi/services
+sudo cp prex.service /etc/systemd/system
 
 # Install necessary packages
 sudo cp sources.list /etc/apt/
@@ -24,6 +25,7 @@ sudo apt-get -y install software-properties-common
 sudo apt-get -y install linkbotd
 sudo apt-get -y install tightvncserver
 sudo apt-get -y install python3-pyqt4
+sudo apt-get -y install tightvncserver
 sudo apt-get install -y wicd-curses
 sudo apt-get remove -y dhcpcd5
 
@@ -45,3 +47,4 @@ sudo ./auto-update-pylinkbot
 # Copy the cron jobs
 sudo cp auto-update /etc/cron.daily/
 sudo cp auto-update-pylinkbot /etc/cron.daily/
+
