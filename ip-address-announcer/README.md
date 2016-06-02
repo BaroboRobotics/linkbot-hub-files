@@ -7,7 +7,6 @@ To quickly broadcast a Linkbot Hub's IP address, run `npm install && ./announcer
 Execute:
 
 ```
-chmod +x announcer.js
 npm install
 sudo cp linkbot-hub-announcer.service /etc/systemd/system/
 sudo systemctl daemon-reload
