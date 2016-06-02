@@ -2,33 +2,43 @@
 
 'use strict';
 
-var messenger = require('rtc-switchboard-messenger');
-var signaller = require('rtc-signaller')(messenger('http://barobo.com:42005/'));
+var Promise = require('promise');
 
-signaller.on('error', function(err) {
-    console.log('error: ', err);
-}).on('connected', function() {
-    console.log('connected');
-}).on('disconnected', function() {
-    console.log('disconnected');
-}).on('local:announce', function(peer) {
-    console.log('local:announce: ', peer);
-}).on('peer:filter', function(id, peer) {
-    console.log('peer:filter: ', id, peer);
-    peer.allow = peer.allow && peer.hasOwnProperty('type') && peer.type === 'linkbot-hub';
-}).on('peer:connected', function(id) {
-    console.log('peer:connected: ', id);
-}).on('peer:announce', function(peer) {
-    console.log('peer:announce: ', peer);
-    console.log(peer.ipAddresses);
-}).on('peer:update', function(peer) {
-    console.log('peer:update: ', peer);
+var resolveLinkbotHub = function (switchboardUri, hostname) {
+    return new Promise(function(resolve, reject) {
+        var switchboardOpts = {
+            endpoints: ['/'],  // Prevent signaller's error event from triggering extra times.
+            autoconnect: true,
+            reconnect: false
+        };
+        var messenger = require('rtc-switchboard-messenger');
+        var signaller = require('rtc-signaller')(messenger(switchboardUri, switchboardOpts));
+
+        signaller.on('peer:filter', function(id, peer) {
+            peer.allow = peer.allow && peer.hasOwnProperty('type') && peer.type === 'linkbot-hub';
+            // Ignore peers in the room that aren't Linkbot Hubs.
+        }).on('peer:announce', function(peer) {
+            resolve(peer.ipAddresses);
+            signaller.leave();
+            // Once we have the Linkbot Hub's IP address list, no need to stick around.
+        }).on('error', function(error) {
+            reject(error);
+        })
+
+        var profile = {
+            room: hostname,
+            type: 'linkbot-labs'
+        };
+
+        signaller.announce(profile);
+    });
+}
+
+var hostname = process.argv[2];
+
+resolveLinkbotHub('http://barobo.com:42005/', hostname)
+.then(function (ipAddresses) {
+    console.log('Resolved', hostname, 'to', ipAddresses);
+}, function (error) {
+    console.error('Error resolving', hostname, ':', error);
 });
-
-var profile = {
-    room: process.argv[2],
-    type: 'linkbot-labs'
-};
-
-signaller.announce(profile);
-signaller.connect();

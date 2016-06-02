@@ -9,6 +9,7 @@
   "author": "Barobo, Inc.",
   "license": "ISC",
   "devDependencies": {
+    "promise": "^7.1.1",
     "rtc-signaller": "^6.3.0",
     "rtc-switchboard-messenger": "^2.0.3"
   }
