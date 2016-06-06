@@ -15,6 +15,7 @@ sudo /etc/init.d/hostname.sh
 
 sudo cp linkbot-hub.service /etc/avahi/services
 sudo cp prex.service /etc/systemd/system
+sudo systemctl enable prex
 
 # Install necessary packages
 sudo cp sources.list /etc/apt/
