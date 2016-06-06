@@ -7,7 +7,7 @@ NEWHN=linkbot-hub-$MAC_ID
 
 # Set hostname to "linkbot-hub-$MAC_ID"
 
-sudo sed -i 's/raspberrypi/$NEWHN/g' /etc/hosts
+sudo sed -i "s/raspberrypi/$NEWHN/g" /etc/hosts
 echo $NEWHN | sudo tee /etc/hostname
 sudo /etc/init.d/hostname.sh
 
@@ -29,16 +29,8 @@ sudo apt-get -y install tightvncserver
 sudo apt-get -y install network-manager-gnome
 
 # Set up linkbot-hub-announcer
+sudo apt-get -y install linkbot-hub-announcer
 
-if [ ! -d "linkbot-hub-announcer" ]; then
-	git clone https://github.com/BaroboRobotics/linkbot-hub-announcer
-fi
-pushd linkbot-hub-announcer
-sudo npm install -g
-sudo cp linkbot-hub-announcer.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl start linkbot-hub-announcer
-popd
 
 # Run the cron jobs now.
 sudo ./auto-update-pylinkbot
