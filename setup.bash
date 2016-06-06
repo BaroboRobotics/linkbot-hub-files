@@ -26,8 +26,7 @@ sudo apt-get -y install linkbotd
 sudo apt-get -y install tightvncserver
 sudo apt-get -y install python3-pyqt4
 sudo apt-get -y install tightvncserver
-sudo apt-get install -y wicd-curses
-sudo apt-get remove -y dhcpcd5
+sudo apt-get -y install network-manager-gnome
 
 # Set up linkbot-hub-announcer
 
