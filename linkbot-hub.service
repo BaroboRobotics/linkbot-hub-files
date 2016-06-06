@@ -1,8 +1,6 @@
 <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 
-<!-- This file is part of udisks -->
-
 <service-group>
   <name replace-wildcards="yes">%h</name>
 

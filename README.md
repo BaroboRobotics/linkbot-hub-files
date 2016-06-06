@@ -34,12 +34,8 @@ it as a service. Instructions are in its README.
 
 #### TODO
 
-apt-get remove dhcpcd5 because it has trouble with wicd.
-
-apt-get install wicd-curses
-Run wicd-curses, press P for preferences and configure like so:
-- always show wired interface
-- always switch to wired connection when available
+apt-get install network-manager-gnome
+Configure Wi-Fi with nm-applet
 
 apt-get install linkbotd
 Install Python 3.5
