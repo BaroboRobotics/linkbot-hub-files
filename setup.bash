@@ -15,7 +15,6 @@ sudo /etc/init.d/hostname.sh
 
 sudo cp linkbot-hub.service /etc/avahi/services
 sudo cp prex.service /etc/systemd/system
-sudo systemctl enable prex
 
 # Install necessary packages
 sudo cp sources.list /etc/apt/
@@ -35,6 +34,7 @@ sudo apt-get -y install linkbot-hub-announcer
 
 # Run the cron jobs now.
 sudo ./auto-update-pylinkbot
+sudo systemctl enable prex
 
 # Copy the cron jobs
 sudo cp auto-update /etc/cron.daily/
