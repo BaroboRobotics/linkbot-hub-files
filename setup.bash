@@ -27,6 +27,7 @@ sudo apt-get -y install tightvncserver
 sudo apt-get -y install python3-pyqt4
 sudo apt-get -y install tightvncserver
 sudo apt-get -y install network-manager-gnome
+sudo cp interfaces /etc/network/
 
 # Set up linkbot-hub-announcer
 sudo apt-get -y install linkbot-hub-announcer
