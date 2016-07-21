@@ -7,7 +7,7 @@ NEWHN=linkbot-hub-$MAC_ID
 
 # Set hostname to "linkbot-hub-$MAC_ID"
 
-sudo sed -i "s/raspberrypi/$NEWHN/g" /etc/hosts
+sudo sed -i "s/odroid64/$NEWHN/g" /etc/hosts
 echo $NEWHN | sudo tee /etc/hostname
 sudo /etc/init.d/hostname.sh
 
@@ -31,6 +31,7 @@ sudo cp interfaces /etc/network/
 
 # Set up linkbot-hub-announcer
 sudo apt-get -y install linkbot-hub-announcer
+sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 
 # Run the cron jobs now.
