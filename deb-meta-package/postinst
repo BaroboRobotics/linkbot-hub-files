@@ -1,0 +1,2 @@
+systemctl enable prex
+/etc/cron.daily/auto-update-pylinkbot

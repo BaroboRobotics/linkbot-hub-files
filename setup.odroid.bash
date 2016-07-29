@@ -11,34 +11,10 @@ sudo sed -i "s/odroid64/$NEWHN/g" /etc/hosts
 echo $NEWHN | sudo tee /etc/hostname
 sudo /etc/init.d/hostname.sh
 
-# Copy service file to correct location
-
-sudo cp linkbot-hub.service /etc/avahi/services
-sudo cp prex.service /etc/systemd/system
-
 # Install necessary packages
-sudo cp sources.list /etc/apt/
+sudo apt-add-repository 'deb http://repo.barobo.com/ jessie main'
 wget http://repo.barobo.com/barobo.public.key -O - | sudo apt-key add -
 sudo apt-get update
-sudo apt-get -y install npm
-sudo apt-get -y install software-properties-common
-sudo apt-get -y install linkbotd
-sudo apt-get -y install tightvncserver
-sudo apt-get -y install python3-pyqt4
-sudo apt-get -y install tightvncserver
-sudo apt-get -y install network-manager-gnome
-sudo cp interfaces /etc/network/
-
-# Set up linkbot-hub-announcer
-sudo apt-get -y install linkbot-hub-announcer
+sudo apt-get -y install nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
-
-
-# Run the cron jobs now.
-sudo ./auto-update-pylinkbot
-sudo systemctl enable prex
-
-# Copy the cron jobs
-sudo cp auto-update /etc/cron.daily/
-sudo cp auto-update-pylinkbot /etc/cron.daily/
-
+sudo apt-get install linkbot-hub-files
