@@ -11,6 +11,9 @@ sudo sed -i "s/odroid64/$NEWHN/g" /etc/hosts
 echo $NEWHN | sudo tee /etc/hostname
 sudo /etc/init.d/hostname.sh
 
+cp odroid/authorized_keys ~/.ssh/
+sudo cp odroid/sshd_config /etc/ssh/
+
 # Install necessary packages
 sudo apt-add-repository 'deb http://repo.barobo.com/ jessie main'
 wget http://repo.barobo.com/barobo.public.key -O - | sudo apt-key add -
