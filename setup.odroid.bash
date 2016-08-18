@@ -21,4 +21,4 @@ wget http://repo.barobo.com/barobo.public.key -O - | sudo apt-key add -
 sudo apt-get update
 sudo apt-get -y install nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
-sudo apt-get install linkbot-hub-files
+sudo apt-get -y install linkbot-hub-files
