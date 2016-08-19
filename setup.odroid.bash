@@ -11,8 +11,8 @@ sudo sed -i "s/odroid64/$NEWHN/g" /etc/hosts
 echo $NEWHN | sudo tee /etc/hostname
 sudo /etc/init.d/hostname.sh
 
-mkdir ~/.ssh
-cp odroid/authorized_keys ~/.ssh/
+mkdir /home/odroid/.ssh
+cp odroid/authorized_keys /home/odroid/.ssh/
 sudo cp odroid/sshd_config /etc/ssh/
 
 # Install necessary packages
