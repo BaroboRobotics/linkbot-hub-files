@@ -1,6 +1,8 @@
 #!/bin/bash
 
-MAC_ID=`ifconfig eth0 | grep HWaddr | awk '{ print $5; }' | sed 's/[[:xdigit:]]*:[[:xdigit:]]*:[[:xdigit:]]*:\([[:xdigit:]]*\):\([[:xdigit:]]*\):\([[:xdigit:]]*\)/\1\2\3/g'`
+MAC_ID=$(cat /sys/class/net/eth0/address \
+    | cut -d: -f4- --output-delimiter='' \
+    | awk '{print tolower($0)}')
 echo $MAC_ID
 
 NEWHN=linkbot-hub-$MAC_ID
