@@ -6,4 +6,5 @@
 
 apt-get update
 apt-get -y install linkbot-hub-files
+apt-get -y upgrade
 apt-get autoclean
