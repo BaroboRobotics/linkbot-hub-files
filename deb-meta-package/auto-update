@@ -8,8 +8,9 @@ SECONDS=`awk -v min=5 -v max=1800 'BEGIN{srand(); print int(min+rand()*(max-min+
 sleep $SECONDS
 apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbot-hub-files
-DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbotd
 DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbot-firmware
+sleep 600
+DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbotd
 DEBIAN_FRONTEND=noninteractive apt-get -yq install liblinkbot
 unattended-upgrade
 apt-get autoclean
