@@ -1,0 +1,14 @@
+[Unit]
+Description=Linkbot Hub Manager web portal
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/linkbot-hub-manager.py 
+Restart=always
+User=root
+Environment=PATH=/usr/bin:/usr/local/bin:/bin
+
+[Install]
+WantedBy=multi-user.target
+

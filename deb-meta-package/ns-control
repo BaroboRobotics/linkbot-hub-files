@@ -7,7 +7,7 @@ Priority: optional
 Standards-Version: 3.9.2
 
 Package: linkbot-hub-files
-Version: 0.10~dev
+Version: 0.10~rc1
 Maintainer: David Ko <david@barobo.com>
 # Pre-Depends: <comma-separated list of packages>
 Depends: npm, software-properties-common, linkbotd, linkbot-firmware, liblinkbot, tightvncserver, python3-pyqt4, python3-numpy, python3-matplotlib, network-manager-gnome, linkbot-hub-announcer, python3-pip
@@ -22,6 +22,7 @@ Architecture: all
 # Readme: <README.Debian file; defaults to a generic one>
 # Extra-Files: <comma-separated list of additional files for the doc directory>
 Files: prex.service /etc/systemd/system
+ linkbot-hub-manager.service /etc/systemd/system
  linkbot-hub.service /etc/avahi/services
  auto-update /etc/cron.daily
  auto-update-pylinkbot /etc/cron.daily

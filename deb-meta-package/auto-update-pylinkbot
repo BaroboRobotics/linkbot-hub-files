@@ -7,3 +7,5 @@ pip3 install --upgrade PyLinkbot3
 pip3 install --upgrade linkbot-firmware-updater
 pip3 install --upgrade prex
 systemctl restart prex
+pip3 install --upgrade linkbot-hub-manager
+systemctl restart linkbot-hub-manager
