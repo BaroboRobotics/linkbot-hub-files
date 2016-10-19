@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "cd /
+run-parts /etc/cron.daily" | at now +5 minutes

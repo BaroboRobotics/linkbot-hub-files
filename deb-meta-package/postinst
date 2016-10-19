@@ -3,6 +3,7 @@
 systemctl enable prex
 systemctl enable linkbot-hub-manager
 /etc/cron.daily/auto-update-pylinkbot
+update-rc.d barobo-startup defaults
 
 # Add the new Barobo public key
 

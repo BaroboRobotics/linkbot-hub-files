@@ -7,10 +7,10 @@ Priority: optional
 Standards-Version: 3.9.2
 
 Package: linkbot-hub-files
-Version: 0.10
+Version: 0.11~rc1
 Maintainer: David Ko <david@barobo.com>
 # Pre-Depends: <comma-separated list of packages>
-Depends: npm, software-properties-common, linkbotd, linkbot-firmware, liblinkbot, tightvncserver, python3-pyqt4, python3-numpy, python3-matplotlib, network-manager-gnome, linkbot-hub-announcer, python3-pip
+Depends: npm, software-properties-common, linkbotd, linkbot-firmware, liblinkbot, tightvncserver, python3-pyqt4, python3-numpy, python3-matplotlib, network-manager-gnome, linkbot-hub-announcer, python3-pip, at
 # Recommends: <comma-separated list of packages>
 # Suggests: <comma-separated list of packages>
 # Provides: <comma-separated list of packages>
@@ -26,6 +26,7 @@ Files: prex.service /etc/systemd/system
  linkbot-hub.service /etc/avahi/services
  auto-update /etc/cron.daily
  auto-update-pylinkbot /etc/cron.daily
+ barobo-startup /etc/init.d
 #  <more pairs, if there's more than one file to include. Notice the starting space>
 Description: Linkbot-Hub meta package
  This is the Linkbot-Hub meta package. This package installs all of the
