@@ -1,4 +1,16 @@
 #!/bin/sh
 
+### BEGIN INIT INFO
+# Provides:          barobo-startup
+# Required-Start:    $remote_fs $syslog $network
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Example initscript
+# Description:       This script runs the Barobo update scripts at startup.
+### END INIT INFO
+
+# Author: David Ko <david@barobo.com>
+
 echo "cd /
 run-parts /etc/cron.daily" | at now +5 minutes
