@@ -6,21 +6,21 @@ The Linkbot Hub is built on a vanilla copy of Raspbian Jessie, available here: <
 
 The Linkbot Hub also incorporates software from the following open source projects:
 
-[rtc-signaller](#rtc-signaller-license), available at <https://github.com/rtc-io/rtc-signaller>
-[rtc-switchboard](#rtc-switchboard-messenger-license), available at <https://github.com/rtc-io/rtc-switchboard-messenger>
+- [rtc-signaller](#rtc-signaller-license), available at <https://github.com/rtc-io/rtc-signaller>  
+- [rtc-switchboard](#rtc-switchboard-messenger-license), available at <https://github.com/rtc-io/rtc-switchboard-messenger>
 
 ### Linkbot Daemon Open Source Licenses
 
 The Linkbot daemon incorporates software from the following open source projects:
 
-[WebSocket++](#websocket-license), available at <https://www.zaphoyd.com/websocketpp>
+- [WebSocket++](#websocket-license), available at <https://www.zaphoyd.com/websocketpp>
 
 ### Linkbot Firmware Open Source Licenses
 
 The Linkbot firmware incorporates software from the following open source projects:
 
-[avr-libc](#avr-libc-license), available at <http://avr-libc.nongnu.org/>
-[µracoli](#µracoli-license), available at <http://uracoli.nongnu.org/>
+- [avr-libc](#avr-libc-license), available at <http://avr-libc.nongnu.org/>  
+- [µracoli](#µracoli-license), available at <http://uracoli.nongnu.org/>
 
 # Licenses
 
