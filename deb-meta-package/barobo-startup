@@ -16,6 +16,7 @@ echo "cd /
 apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbot-hub-files
 DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbot-firmware
+DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbot-hub-announcer
 sleep 120
 DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbotd
 DEBIAN_FRONTEND=noninteractive apt-get -yq install liblinkbot
