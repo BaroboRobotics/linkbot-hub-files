@@ -13,5 +13,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbot-hub-announcer
 sleep 600
 DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbotd
 DEBIAN_FRONTEND=noninteractive apt-get -yq install liblinkbot
+DEBIAN_FRONTEND=noninteractive apt-get -yq install chbarobo
+DEBIAN_FRONTEND=noninteractive apt-get -yq install ch
 unattended-upgrade
 apt-get autoclean
