@@ -15,5 +15,6 @@ DEBIAN_FRONTEND=noninteractive apt-get -yq install linkbotd
 DEBIAN_FRONTEND=noninteractive apt-get -yq install liblinkbot
 DEBIAN_FRONTEND=noninteractive apt-get -yq install chbarobo
 DEBIAN_FRONTEND=noninteractive apt-get -yq install ch
+DEBIAN_FRONTEND=noninteractive apt-get -yqf install
 unattended-upgrade
 apt-get autoclean
