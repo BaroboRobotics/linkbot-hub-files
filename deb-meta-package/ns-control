@@ -7,7 +7,7 @@ Priority: optional
 Standards-Version: 3.9.2
 
 Package: linkbot-hub-files
-Version: 0.13~rc4
+Version: 0.13
 Maintainer: David Ko <david@barobo.com>
 # Pre-Depends: <comma-separated list of packages>
 Depends: npm, software-properties-common, linkbotd, linkbot-firmware, liblinkbot (>=0.3.2~rc.0), tightvncserver, python3-pyqt4, python3-numpy, python3-matplotlib, network-manager-gnome, linkbot-hub-announcer, python3-pip, at, libprotobuf9, chbarobo (>=1.1.1)
