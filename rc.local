@@ -21,13 +21,13 @@ if [ "$_IP" ]; then
 fi
 
 # RPi Network Conf Bootstrapper
- 
+
 createAdHocNetwork(){
     echo "Creating ad-hoc network"
     ifconfig wlan0 down
     iwconfig wlan0 mode ad-hoc
     iwconfig wlan0 key 1234567890 #WEP key
-    iwconfig wlan0 essid linkbot-hub-0d616a      #SSID
+    iwconfig wlan0 essid `hostname` #SSID
     ifconfig wlan0 10.0.0.200 netmask 255.255.255.0 up
     /usr/sbin/dhcpd wlan0
     echo "Ad-hoc network created"
@@ -38,7 +38,7 @@ echo "RPi Network Conf Bootstrapper 0.1"
 echo "RPi Network Conf Bootstrapper 0.1" >> /home/pi/rc.local.logs
 echo "================================="
 echo "Scanning for known WiFi networks"
-ssids='NETGEAR55 MyOtherWlan'
+ssids='MyWlan MyOtherWlan'
 connected=false
 echo "Scanning..." >> /home/pi/rc.local.logs
 iwlist wlan0 scan >> /home/pi/rc.local.logs 2>&1
