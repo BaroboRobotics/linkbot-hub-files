@@ -11,6 +11,8 @@
 #
 # By default this script does nothing.
 
+# This script requires package isc-dhcp-server to be installed
+
 
 if [ -f /aafirstboot ]; then /aafirstboot start ; fi
 
